@@ -200,9 +200,6 @@
 		<script type="text/javascript" src="js/list.js" ></script>
 	</body>
 </html>
-<script type="text/javascript" src="js/jquery-1.11.1.min.js">
-	
-</script>
 <script type="text/javascript">
 $(function(){
 	$("#allChoose").click(function(){
@@ -223,6 +220,31 @@ $(function(){
 		}else{
 			$("#allChoose").prop("checked",true)
 		}
+	})
+		$("#delBtn").click(function(){
+		$("#delBtn").parent().parent().remove()
+	})
+	$("#delBtn").click(function(){
+		$("#delBtn").parent().parent().remove()
+	})
+
+	$("#updateBtn").click(function(){
+	var url="json/list.json"
+	$.get(url,{
+			"id":1,
+			"userName":"张三",
+			"userAge":18,
+			"userSex":0,
+			"userNation":"汉族",
+			"userCard":"430123456789101112",
+			"userPhone":12345678910,
+			"userVoc":"学生"
+		},function(str){
+//			var a=JSON.parse(str)
+			var a=str.list
+			$(".inp-text").val(a[0].userName)
+			console.log(a[0].userName)
+		})
 	})
 })
 </script>
